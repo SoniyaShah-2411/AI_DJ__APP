@@ -26,8 +26,8 @@ console.log('PoseNet is Initiliazied');
 function draw(){
 image(video, 0, 0 ,600,500);
 
-fill("red");
-stroke("red");
+fill("#FF0000");
+stroke("#FF0000");
 
 if(scoreRightWrist > 0.2)
 {
@@ -63,10 +63,10 @@ song.rate(2.5);
 if (scoreleftWrist > 0.2){
 circle(leftWristX,leftWristY,20);
 InNumberleftWristY = Number(leftWristY);
-remove_decimals = floor(InNumberleftWristY);
-volume = leftWristY_divide_1000 *2;
-document.getElementById("volume").innerHTML = "Volume = " + volume;
-song.setVolume(volume);
+remove_decimals = floor(InNumberleftWristY *2);
+leftWristY_divide_1000 = remove_decimals/1000;
+document.getElementById("volume").innerHTML = "Volume = " + leftWristY_divide_1000;
+song.setVolume(leftWristY_divide_1000);
 }
 }
 
@@ -80,7 +80,6 @@ song.rate(1);
 function gotPoses(results){
 if(results.length > 0);
 {
-console.log(results);
 scoreLeftWrist = results[0].pose.keypoints[9].score;
 scoreRightWrist = results[0].pose.keypoints[10].score;
 console.log("scoreLeftWrist =" + scoreleftWrist + "scoreRightWrist =" + scorerightWrist);
