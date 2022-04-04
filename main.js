@@ -65,6 +65,7 @@ circle(leftWristX,leftWristY,20);
 InNumberleftWristY = Number(leftWristY);
 remove_decimals = floor(InNumberleftWristY *2);
 leftWristY_divide_1000 = remove_decimals/1000;
+volume = leftWristY_divide_1000;
 document.getElementById("volume").innerHTML = "Volume = " + leftWristY_divide_1000;
 song.setVolume(leftWristY_divide_1000);
 }
